@@ -1,4 +1,4 @@
-package com.nerds.patrimonio.nerds_patrimonio_api;
+package com.nerds.patrimonio.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
