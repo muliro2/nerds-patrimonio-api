@@ -3,6 +3,7 @@ package com.nerds.patrimonio.api.exception;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -36,6 +37,17 @@ public class GlobalExceptionHandler {
         response.put("errors", errors);
         
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+    }
+    
+    @ExceptionHandler(HttpMessageNotReadableException.class)
+    public ResponseEntity<Map<String, Object>> handleHttpMessageNotReadable(HttpMessageNotReadableException ex) {
+        String message = "Formato de requisição inválido";
+
+        if (ex.getMessage() != null && ex.getMessage().contains("enum")) {
+            message = "Tipo de equipamento inválido. Valores válidos: INFORMATICA, MOBILIARIO, ELETRONICO, ELETRICO, OUTRO";
+        }
+
+        return buildResponse(HttpStatus.BAD_REQUEST, message);
     }
 
     private ResponseEntity<Map<String, Object>> buildResponse(HttpStatus status, String message) {

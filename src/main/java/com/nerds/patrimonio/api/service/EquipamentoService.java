@@ -33,6 +33,7 @@ public class EquipamentoService {
         Equipamento equipamento = Equipamento.builder()
                 .nome(dto.nome())
                 .tipo(dto.tipo())
+                .dataAdicao(dto.dataAdicao())
                 .numeroTombamento(dto.numeroTombamento())
                 .build();
         
@@ -49,6 +50,7 @@ public class EquipamentoService {
 
         equipamento.setNome(dto.nome());
         equipamento.setTipo(dto.tipo());
+        equipamento.setDataAdicao(dto.dataAdicao());
         equipamento.setNumeroTombamento(dto.numeroTombamento());
 
         return repository.save(equipamento);
