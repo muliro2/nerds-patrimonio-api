@@ -2,6 +2,7 @@ package com.nerds.patrimonio.api.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "tb_equipamentos")
@@ -21,5 +22,9 @@ public class Equipamento {
     private String tipo;
 
     @Column(nullable = false, unique = true)
-    private String numeroSerie;
+    private String numeroTombamento;
+
+    @Column(nullable = false)
+    @Temporal(TemporalType.DATE)
+    private LocalDate dataAdicao;
 }

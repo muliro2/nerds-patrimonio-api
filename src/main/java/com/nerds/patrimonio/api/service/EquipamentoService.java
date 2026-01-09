@@ -26,14 +26,14 @@ public class EquipamentoService {
     }
 
     public Equipamento salvar(EquipamentoDTO dto) {
-        if (repository.existsByNumeroSerie(dto.numeroSerie())) {
-            throw new RegraNegocioException("Já existe um equipamento cadastrado com o número de série: " + dto.numeroSerie());
+        if (repository.existsBynumeroTombamento(dto.numeroTombamento())) {
+            throw new RegraNegocioException("Já existe um equipamento cadastrado com o número de tombamento: " + dto.numeroTombamento());
         }
 
         Equipamento equipamento = Equipamento.builder()
                 .nome(dto.nome())
                 .tipo(dto.tipo())
-                .numeroSerie(dto.numeroSerie())
+                .numeroTombamento(dto.numeroTombamento())
                 .build();
         
         return repository.save(equipamento);
@@ -41,15 +41,15 @@ public class EquipamentoService {
 
     public Equipamento atualizar(Long id, EquipamentoDTO dto) {
         Equipamento equipamento = buscarPorId(id);
-        
-        if (!equipamento.getNumeroSerie().equals(dto.numeroSerie()) && 
-            repository.existsByNumeroSerie(dto.numeroSerie())) {
-            throw new RegraNegocioException("Conflito: Número de série já pertence a outro equipamento.");
+
+        if (!equipamento.getNumeroTombamento().equals(dto.numeroTombamento()) && 
+            repository.existsBynumeroTombamento(dto.numeroTombamento())) {
+            throw new RegraNegocioException("Conflito: Número de tombamento já pertence a outro equipamento.");
         }
 
         equipamento.setNome(dto.nome());
         equipamento.setTipo(dto.tipo());
-        equipamento.setNumeroSerie(dto.numeroSerie());
+        equipamento.setNumeroTombamento(dto.numeroTombamento());
 
         return repository.save(equipamento);
     }
