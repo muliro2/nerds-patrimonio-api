@@ -3,6 +3,7 @@ package com.nerds.patrimonio.api.model;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDate;
+import com.nerds.patrimonio.api.enums.TipoEquipamento;
 
 @Entity
 @Table(name = "tb_equipamentos")
@@ -18,8 +19,9 @@ public class Equipamento {
     @Column(nullable = false)
     private String nome;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private String tipo;
+    private TipoEquipamento tipo;
 
     @Column(nullable = false, unique = true)
     private String numeroTombamento;
