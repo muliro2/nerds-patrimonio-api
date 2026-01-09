@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface EquipamentoRepository extends JpaRepository<Equipamento, Long> {
     boolean existsBynumeroTombamento(String numeroTombamento);
+    java.util.Optional<Equipamento> findByNumeroTombamento(String numeroTombamento);
 }

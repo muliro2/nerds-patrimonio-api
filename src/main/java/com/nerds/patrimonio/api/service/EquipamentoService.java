@@ -25,6 +25,11 @@ public class EquipamentoService {
                 .orElseThrow(() -> new EntityNotFoundException("Equipamento não encontrado com ID: " + id));
     }
 
+    public Equipamento buscarPorNumeroTombamento(String numeroTombamento) {
+        return repository.findByNumeroTombamento(numeroTombamento)
+                .orElseThrow(() -> new EntityNotFoundException("Equipamento não encontrado com número de tombamento: " + numeroTombamento));
+    }
+
     public Equipamento salvar(EquipamentoDTO dto) {
         if (repository.existsBynumeroTombamento(dto.numeroTombamento())) {
             throw new RegraNegocioException("Já existe um equipamento cadastrado com o número de tombamento: " + dto.numeroTombamento());

@@ -28,6 +28,11 @@ public class EquipamentoController {
         return ResponseEntity.ok(service.buscarPorId(id));
     }
 
+    @GetMapping("/tombamento/{numeroTombamento}")
+    public ResponseEntity<Equipamento> buscarPorTombamento(@PathVariable String numeroTombamento) {
+        return ResponseEntity.ok(service.buscarPorNumeroTombamento(numeroTombamento));
+    }
+
     @PostMapping
     public ResponseEntity<Equipamento> criar(@RequestBody @Valid EquipamentoDTO dto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(service.salvar(dto));
