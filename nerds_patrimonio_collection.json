@@ -162,6 +162,15 @@
 				"description": "Exclui um equipamento pelo ID."
 			},
 			"response": []
+		},
+		{
+			"name": "7. Buscar por número de tombamento",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
 		}
+
 	]
 }
