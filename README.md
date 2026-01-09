@@ -16,3 +16,23 @@ O sistema gerencia o inventário do projeto, com funcionalidades de adição, at
 1. Clone o repositório:
    ```bash
    git repo clone muliro2/nerds-patrimonio-api
+   ```
+2. Execute o o projeto:
+   ```bash
+   ./mvnw spring-boot:run
+   ```
+   
+## 🧪 Testando a API
+
+### 🔌 Swagger UI (Documentação Interativa)
+Acesse a documentação automática e teste os endpoints diretamente pelo navegador:
+- **URL:** `http://localhost:8080/swagger-ui/index.html`
+
+### 🚀 Postman Collection
+Para testar via Postman, incluí um arquivo de collection na raiz do porjeto.
+
+1. **Baixe o arquivo:** [nerds_patrimonio_collection.json](./nerds_patrimonio_collection.json) 📥
+2. Abra o Postman e clique em **Import**.
+3. Arraste o arquivo baixado para dentro do Postman.
+
+---
