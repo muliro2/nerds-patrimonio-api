@@ -17,9 +17,15 @@ O sistema gerencia o inventário do projeto, com funcionalidades de adição, at
    ```bash
    git repo clone muliro2/nerds-patrimonio-api
    ```
-2. Execute o o projeto:
+2. Execute o projeto:
    ```bash
    ./mvnw spring-boot:run
+   ```
+
+## 🚀 Como Executar os teste
+1. Execute os testes:
+   ```bash
+   .\mvnw test
    ```
    
 ## 🧪 Testando a API
